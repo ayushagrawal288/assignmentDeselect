@@ -1,0 +1,1 @@
+web: gunicorn imagemanagementrest.wsgi
