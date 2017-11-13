@@ -1,1 +1,2 @@
-web: gunicorn imagemanagementrest.wsgi
+web: gunicorn imagemanagementrest.wsgi --log-file -
+
