@@ -58,9 +58,13 @@ def upload_img(request):
         path = request.GET.get('file')
         if path == 'all' or path == None:
             urls = []
-            for i in default_storage.listdir(str(request.user))[1]:
-                urls.append('/media/'+str(request.user) + '/' + i)
+            try:
+                for i in default_storage.listdir(str(request.user))[1]:
+                    urls.append('/media/'+str(request.user) + '/' + i)
+            except:
+                print("No images yet")
             return Response({'status': 'success',' files': urls})
+        
         else:
             return redirect('/media/'+str(request.user) +'/'+ path)
     elif request.method == 'PATCH':
