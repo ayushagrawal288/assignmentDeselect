@@ -81,7 +81,7 @@ Response = {
 Method = (delete)  
 ```
 Request = {  
-  'filename': 'image to be deleted'  
+  'file': 'image to be deleted'  
 }  
 Response = {  
  'status': 'success',   
