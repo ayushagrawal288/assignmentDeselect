@@ -10,7 +10,7 @@ python manage.py runserver
 ``` 
 ## APIs  
 ```
-baseurl=http:127:0.0.1:8000(if you are running locally)  
+baseurl=http:127:0.0.1:8000 (if you are running locally) || baseurl=https://imagemanagementrest.herokuapp.com (if on herkou)   
 ```
 Register a User  
 Request:  method=(post)  
