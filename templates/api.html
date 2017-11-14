@@ -1,0 +1,69 @@
+<h2>APIs</h2>
+<pre><code>baseurl=http:127:0.0.1:8000(if you are running locally)  
+</code></pre>
+<p>Register a User<br />Request: method=(post)</p>
+<pre><code>baseurl/api/register   
+parameters =   
+{  
+  'username': username  
+  'password': password  
+}  
+Response = {  
+  'status': 'success'/'fail',  
+  'err': 'error message'(if error exits)  
+} 
+</code></pre>
+<h2><a id="user-content-get-acess-token" class="anchor" href="https://github.com/ayushagrawal288/assignmentDeselect/blob/master/README.md#get-acess-token"></a>Get acess token</h2>
+<p>Request</p>
+<pre><code>baseurl/api/get_auth_token method=(post)  
+parameters =   
+{  
+  'username': username  
+  'password': password  
+}  
+Response = {  
+  'token': acces_token  
+}  
+</code></pre>
+<h2><a id="user-content-upload" class="anchor" href="https://github.com/ayushagrawal288/assignmentDeselect/blob/master/README.md#upload"></a>Upload</h2>
+<p>baseurl/api/upload<br />Method = (get)</p>
+<pre><code>Header = {  
+    'Authorization': 'token '+access_token   
+}    
+Parameters = {  
+  'file': filename (if filename if None or 'all' then it will provide list of all the images of the user else single image)  
+}  
+
+Response:  
+if file==None or 'all'  
+{  
+ 'status': 'success',  
+ 'files': list of all the files  
+}  
+else  
+required file is displayed  
+  
+Method = (post)  
+Request = {  
+  'file' : upload image  
+}  
+Response = {  
+ 'status': 'success',   
+}   
+</code></pre>
+<p>Method = (patch)</p>
+<pre><code>Request = {  
+  'file' : upload new image,  
+  'filename': current image to be replaced  
+}  
+Response = {  
+ 'status': 'success',   
+}  
+</code></pre>
+<p>Method = (delete)</p>
+<pre><code>Request = {  
+  'file': 'image to be deleted'  
+}  
+Response = {  
+ 'status': 'success',   
+}  </code></pre>

@@ -84,3 +84,5 @@ def upload_img(request):
             return Response({'status': 'fail', 'error': Exception.message})
     else:
         return Response({'status': 'fail', 'msg': 'method not allowed'})
+def home(request):
+    return render(request,'api.html')

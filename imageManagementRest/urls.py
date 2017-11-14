@@ -19,13 +19,14 @@ from django.views.static import serve
 from django.contrib import admin
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
-
+from auth.views import home
 
 @permission_classes((IsAuthenticated))
 def protected_serve(request, path, document_root=None, show_indexes=False):
     return serve(request, path, document_root, show_indexes)
 
 urlpatterns = [
+    url(r'^$', home),
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include('auth.urls', namespace="auth")),
     url(r'^%s(?P<path>.*)$' % settings.MEDIA_URL[1:], protected_serve, {'document_root': settings.MEDIA_ROOT}),    
